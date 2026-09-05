@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Notebook</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<main class="app-shell">
+			<aside class="sidebar">
+				<div class="brand-row">
+					<div class="brand-mark">N</div>
+					<div>
+						<p class="eyebrow">Personal workspace</p>
+						<h1>Notebook</h1>
+					</div>
+				</div>
+
+				<button class="new-note-button" id="new-note-button" type="button">
+					<span aria-hidden="true">+</span> New note
+				</button>
+
+				<label class="search-box" for="search-input">
+					<span aria-hidden="true">⌕</span>
+					<input id="search-input" type="search" placeholder="Search notes" />
+				</label>
+
+				<div class="section-heading">
+					<span>Notes</span>
+					<span class="note-count" id="note-count">0</span>
+				</div>
+				<div class="note-list" id="note-list" aria-live="polite"></div>
+				<p class="sidebar-footer">Stored locally on this device</p>
+			</aside>
+
+			<section class="workspace">
+				<header class="workspace-header">
+					<div>
+						<p class="eyebrow">Your thoughts, in order</p>
+						<h2 id="view-title">All notes</h2>
+					</div>
+					<label class="category-filter" for="category-filter">
+						<span>Category</span>
+						<select id="category-filter">
+							<option value="all">All categories</option>
+						</select>
+					</label>
+				</header>
+
+				<article class="editor-card" aria-label="Note editor">
+					<div class="editor-toolbar">
+						<span class="save-status" id="save-status">Ready when you are</span>
+						<div class="editor-actions">
+							<button class="delete-button" id="delete-button" type="button" disabled>Delete</button>
+							<button class="save-button" id="save-button" type="button">Save note</button>
+						</div>
+					</div>
+					<input class="title-input" id="title-input" type="text" maxlength="120" placeholder="Untitled note" aria-label="Note title" />
+					<div class="meta-row">
+						<label for="category-input">Category</label>
+						<input id="category-input" list="category-options" maxlength="40" placeholder="General" />
+						<datalist id="category-options"></datalist>
+					</div>
+					<textarea id="content-input" placeholder="Start writing..." aria-label="Note content"></textarea>
+					<footer class="editor-footer"><span id="word-count">0 words</span><span>Saved as JSON</span></footer>
+				</article>
+			</section>
+		</main>
+		<script src="renderer.js"></script>
+	</body>
+</html>
